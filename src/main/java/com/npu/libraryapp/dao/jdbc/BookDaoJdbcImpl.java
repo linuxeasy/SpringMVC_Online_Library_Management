@@ -50,7 +50,7 @@ public class BookDaoJdbcImpl implements BookDAO  {
 	}
 
 	public int getBookCount() {
-		String sql = "select count(*) from Book";
+		String sql = "select count(*) from book";
 		return jdbcTemplate.queryForInt(sql);
 	}
 	
@@ -69,7 +69,7 @@ public class BookDaoJdbcImpl implements BookDAO  {
 	}
 
 	public String findBookNameById(int bookid) {
-		String sql = "select title from Book where bookid=?";
+		String sql = "select title from book where bookid=?";
 		return jdbcTemplate.queryForObject(sql, String.class, bookid);	
 
 	}
@@ -77,7 +77,7 @@ public class BookDaoJdbcImpl implements BookDAO  {
 	public Book findBookByName(String title) {
 		int bookFound;
 		
-		String sql = "select * from Book where title=?";
+		String sql = "select * from book where title=?";
 		
 		List<Book> bookList = jdbcTemplate.query(sql, bookRowMapper, title );
 		
@@ -92,7 +92,7 @@ public class BookDaoJdbcImpl implements BookDAO  {
 	}
 	
 	public int findIsbnByName(String title) {
-		String sql = "select isbn from Book where title=?";
+		String sql = "select isbn from book where title=?";
 		return jdbcTemplate.queryForObject(sql, Integer.class , title );	
 	}
 
@@ -154,7 +154,7 @@ public class BookDaoJdbcImpl implements BookDAO  {
 
 	@Transactional
 	public int findBookIdByName(String title) {
-			String sql = "select bookid from Book where title=?";	
+			String sql = "select bookid from book where title=?";
 			return jdbcTemplate.queryForObject(sql, Integer.class , title );	
 		}
 	
