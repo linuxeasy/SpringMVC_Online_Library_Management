@@ -15,17 +15,16 @@ public class ConnectionDAO
 	{
 		try
 		{
-			String url = "jdbc:mysql://localhost/";// e.g. jdbc:mysql://localhost:3306/
-			String dbName ="cs548_library"; // here the name of Database.
-			String uname = "librarydb_user"; //username
-			String pwd = "spring"; //password
+			String url = System.getenv("jdbc.url");// e.g. jdbc:mysql://localhost:3306/
+			String uname = System.getenv("jdbc.username");//username
+			String pwd = System.getenv("jdbc.password"); //password
 			
 			//MySQL jdbc driver
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(System.getenv("jdbc.driver_class"));
 			try
 			{
 				if(null==conn){
-					conn = DriverManager.getConnection(url+dbName,uname,pwd);
+					conn = DriverManager.getConnection(url,uname,pwd);
 				}
 			}
 			catch (SQLException ex)

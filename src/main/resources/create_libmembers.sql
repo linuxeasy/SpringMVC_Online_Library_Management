@@ -1,13 +1,3 @@
-CREATE USER 'librarydb_user'@'localhost' IDENTIFIED BY 'spring';
-
-GRANT ALL PRIVILEGES ON cs548_library.* TO 'librarydb_user'@'localhost' WITH GRANT OPTION;
-
-SHOW GRANTS FOR 'librarydb_user'@'localhost';
-
-delimiter ;
-DROP SCHEMA IF EXISTS `cs548_library`; 
-CREATE SCHEMA `cs548_library` ;
-use `cs548_library`;
 
 delimiter $$
 
